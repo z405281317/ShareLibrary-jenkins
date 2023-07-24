@@ -43,7 +43,7 @@ pipeline {
             steps{
                 script{
                     println("test")
-                    println("${params.extendedChoice.name}")
+                    println("${params.value}")
                     utils.PrintMsg()
                     hello.Helloutils()
                 }
