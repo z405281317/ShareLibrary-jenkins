@@ -43,7 +43,7 @@ pipeline {
             steps{
                 script{
                     println("test")
-                    println("${params.value}")
+                    println("${params.环境}")
                     utils.PrintMsg()
                     hello.Helloutils()
                 }
