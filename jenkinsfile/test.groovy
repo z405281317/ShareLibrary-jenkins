@@ -43,6 +43,7 @@ pipeline {
             steps{
                 script{
                     println("test")
+                    print(siteOptions)
                     println("${params.环境}")
                     utils.PrintMsg()
                     hello.Helloutils()
