@@ -2,6 +2,20 @@ def hello(){
     print("this hello")
 }
 
+// 环境列表
+def sites = [
+    "test": "test"
+    "dev": "dev"
+    "try": "try"
+    "prod": "prod"
+]
+
+// 环境选项
+def siteLabels = sites.values().join(',')
+// 环境选项标签
+def siteOptions = sites.keySet().join(',')
+def siteCount = sites.size()
+
 pipeline {
     agent any
     
@@ -12,7 +26,15 @@ pipeline {
         timeout(time: 1, unit: "HOURS") //流水线超时1小时
     }
     parameters {
-        string defaultValue: 'AMD-desktop', name: 'node_name'
+         extendedChoice(
+            name: '环境',
+            defaultValue: 'test',
+            descriptionPropertyValue: siteLabels,
+            multiSelectDelimiter: ',',
+            type: 'PT_RADIO',
+            value: siteOptions,
+            visibleItemCount: siteCount,
+        )
     }
     
     stages {
@@ -20,7 +42,7 @@ pipeline {
             steps{
                 script{
                     println("test")
-                    println("${params.node_name}")
+                    println("${params.name}")
                     utils.PrintMsg()
                     hello.Helloutils()
                 }
