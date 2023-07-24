@@ -39,6 +39,7 @@ pipeline {
             value: siteOptions,
             visibleItemCount: siteCount,
         )
+        //install git-parameter
         gitParameter name: 'BRANCH',type: 'PT_BRANCH_TAG',defaultValue: 'release/test', branchFilter: 'origin/(.*)', useRepository: gitRepo,quickFilterEnabled: true
     }
     
