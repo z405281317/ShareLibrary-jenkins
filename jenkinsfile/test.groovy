@@ -3,7 +3,7 @@ def hello(){
 }
 
 // git仓库地址
-def gitRepo = "http://newgit.cg.xxx/goteam/activeServer.git"
+def gitRepo = "https://github.com/david966524/ShareLibrary-jenkins.git"
 
 // 环境列表
 def sites = [
@@ -52,6 +52,7 @@ pipeline {
                     println("${params.环境}")
                     utils.PrintMsg()
                     hello.Helloutils()
+                    git branch: ${params.BRANCH}, credentialsId: '842ea056-6087-470a-9ca0-06bd1e9fa13c', url: gitRepo
                 }
             }
         }
