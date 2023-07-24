@@ -46,7 +46,8 @@ pipeline {
     stages {
         stage("test"){
             steps{
-                git branch: '$BRANCH', credentialsId: '842ea056-6087-470a-9ca0-06bd1e9fa13c', url: 'https://github.com/david966524/ShareLibrary-jenkins.git'
+                //git branch: '$BRANCH', credentialsId: '842ea056-6087-470a-9ca0-06bd1e9fa13c', url: 'https://github.com/david966524/ShareLibrary-jenkins.git'
+                git branch: '$BRANCH', url: gitRepo
                 script{
                     println("test")
                     print(siteOptions)
