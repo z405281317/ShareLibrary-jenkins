@@ -2,6 +2,9 @@ def hello(){
     print("this hello")
 }
 
+// git仓库地址
+def gitRepo = "http://newgit.cg.xxx/goteam/activeServer.git"
+
 // 环境列表
 def sites = [
     "test": "测试环境",
@@ -36,6 +39,7 @@ pipeline {
             value: siteOptions,
             visibleItemCount: siteCount,
         )
+        gitParameter name: 'BRANCH',type: 'PT_BRANCH_TAG',defaultValue: 'release/test', branchFilter: 'origin/(.*)', useRepository: gitRepo,quickFilterEnabled: true
     }
     
     stages {
