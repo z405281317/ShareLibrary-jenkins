@@ -26,6 +26,7 @@ pipeline {
         timeout(time: 1, unit: "HOURS") //流水线超时1小时
     }
     parameters {
+        //install extended-choice-parameter
          extendedChoice(
             name: '环境',
             defaultValue: 'test',
@@ -42,7 +43,7 @@ pipeline {
             steps{
                 script{
                     println("test")
-                    println("${params.name}")
+                    println("${params.extendedChoice.name}")
                     utils.PrintMsg()
                     hello.Helloutils()
                 }
