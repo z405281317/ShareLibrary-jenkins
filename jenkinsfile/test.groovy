@@ -4,10 +4,10 @@ def hello(){
 
 // 环境列表
 def sites = [
-    "test": "test"
-    "dev": "dev"
-    "try": "try"
-    "prod": "prod"
+    "test": "test",
+    "dev": "dev",
+    "try": "try",
+    "prod": "prod",
 ]
 
 // 环境选项
