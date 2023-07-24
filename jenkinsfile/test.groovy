@@ -21,6 +21,7 @@ pipeline {
                 script{
                     println("test")
                     println("${params.node_name}")
+                    hello()
                 }
             }
         }
