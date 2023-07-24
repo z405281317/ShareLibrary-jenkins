@@ -1,3 +1,3 @@
-def hello(){
+def helloutils(){
     print("hello jenkins")
 }
