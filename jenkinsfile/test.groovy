@@ -52,7 +52,6 @@ pipeline {
                     println("${params.环境}")
                     utils.PrintMsg()
                     hello.Helloutils()
-                    git branch: ${params.BRANCH}, credentialsId: '842ea056-6087-470a-9ca0-06bd1e9fa13c', url: gitRepo
                 }
             }
         }
