@@ -21,7 +21,8 @@ pipeline {
                 script{
                     println("test")
                     println("${params.node_name}")
-                    PrintMsg()
+                    utils.PrintMsg()
+                    hello.Helloutils()
                 }
             }
         }
