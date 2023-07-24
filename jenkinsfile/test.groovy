@@ -62,19 +62,19 @@ pipeline {
         
         success {
             script {
-                currentBuild.description += "\n 构建成功"
+                currentBuild.description = "\n 构建成功"
             }
         }
         
         failure {
             script {
-                currentBuild.description += "\n 构建失败"
+                currentBuild.description = "\n 构建失败"
             }
         }
         
         aborted {
             script {
-                currentBuild.description += "\n 构建取消"
+                currentBuild.description = "\n 构建取消"
             }
         }
     }
