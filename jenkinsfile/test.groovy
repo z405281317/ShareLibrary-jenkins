@@ -21,7 +21,6 @@ pipeline {
                 script{
                     println("test")
                     println("${params.node_name}")
-                    helloutils()
                     PrintMsg()
                 }
             }
