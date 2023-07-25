@@ -65,7 +65,7 @@ pipeline {
             steps{
                 checkout scmGit(branches: [[name: BRANCH ]], extensions: [], userRemoteConfigs: [[credentialsId: '842ea056-6087-470a-9ca0-06bd1e9fa13c', url: gitRepo]])
                 script{
-                    println("部署环境："+${params.环境})
+                    println("部署环境：${params.环境}")
                     String gitAuthorName = utils.GetAuthorName()
                     println("提交人: "+gitAuthorName)
                     String gitCommitMessage = utils.GetCommitMessage()
