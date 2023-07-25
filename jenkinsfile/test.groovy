@@ -1,9 +1,3 @@
-def hello(){
-    print("this hello")
-}
-
-
-
 
 // git仓库地址
 def gitRepo = "https://github.com/david966524/ShareLibrary-jenkins.git"
