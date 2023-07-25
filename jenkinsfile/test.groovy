@@ -72,7 +72,7 @@ pipeline {
                     utils.pull(BRANCH,credentialsId,gitRepo)   //封装jenkins DSL 方法
                     println("部署环境：${params.环境}")
                     gitAuthorName = utils.GetAuthorName()
-                    println("提交人: "+gitAuthorName)
+                    println("提交人: " + gitAuthorName)
                     String gitCommitMessage = utils.GetCommitMessage()
                     println("提交信息: " + gitCommitMessage)
                     
