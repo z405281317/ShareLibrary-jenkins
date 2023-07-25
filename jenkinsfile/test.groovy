@@ -22,6 +22,8 @@ def siteLabels = sites.values().join(',')
 def siteOptions = sites.keySet().join(',')
 def siteCount = sites.size()
 
+String gitAuthorName 
+
 pipeline {
     agent any
     
@@ -66,7 +68,7 @@ pipeline {
                 checkout scmGit(branches: [[name: BRANCH ]], extensions: [], userRemoteConfigs: [[credentialsId: '842ea056-6087-470a-9ca0-06bd1e9fa13c', url: gitRepo]])
                 script{
                     println("部署环境：${params.环境}")
-                    String gitAuthorName = utils.GetAuthorName()
+                    gitAuthorName = utils.GetAuthorName()
                     println("提交人: "+gitAuthorName)
                     String gitCommitMessage = utils.GetCommitMessage()
                     println("提交信息: " + gitCommitMessage)
