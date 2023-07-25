@@ -44,17 +44,23 @@ pipeline {
     }
     
     stages {
-        stage("test"){
+        // stage("test"){
+        //     steps{
+        //         //git branch: '$BRANCH', credentialsId: '842ea056-6087-470a-9ca0-06bd1e9fa13c', url: 'https://github.com/david966524/ShareLibrary-jenkins.git'
+        //         git branch: '$BRANCH', url: gitRepo
+        //         script{
+        //             println("test")
+        //             print(siteOptions)
+        //             println("${params.环境}")
+        //             utils.PrintMsg()
+        //             hello.Helloutils()
+        //         }
+        //     }
+        // }
+
+        stage("pull"){
             steps{
-                //git branch: '$BRANCH', credentialsId: '842ea056-6087-470a-9ca0-06bd1e9fa13c', url: 'https://github.com/david966524/ShareLibrary-jenkins.git'
-                git branch: '$BRANCH', url: gitRepo
-                script{
-                    println("test")
-                    print(siteOptions)
-                    println("${params.环境}")
-                    utils.PrintMsg()
-                    hello.Helloutils()
-                }
+                checkout scmGit(branches: [[name: '${BRANCH}']], extensions: [], userRemoteConfigs: [[credentialsId: '842ea056-6087-470a-9ca0-06bd1e9fa13c', url: '${gitRepo}']])
             }
         }
     
