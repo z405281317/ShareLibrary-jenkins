@@ -70,6 +70,7 @@ pipeline {
                     println("提交人: "+gitAuthorName)
                     String gitCommitMessage = utils.GetCommitMessage()
                     println("提交信息: " + gitCommitMessage)
+                    currentBuild.displayName=${gitAuthorName}
                 }
             }
         }
