@@ -4,8 +4,8 @@ def PrintMsg(){
     print("groovy output")
 }
 
-def pull(Branch,Id,GitRepo){
-    checkout scmGit(branches: [[name: BRANCH ]], extensions: [], userRemoteConfigs: [[credentialsId: '842ea056-6087-470a-9ca0-06bd1e9fa13c', url: gitRepo]])
+def pull(BRANCH,credentialsId,gitRepo){
+    checkout scmGit(branches: [[name: BRANCH ]], extensions: [], userRemoteConfigs: [[credentialsId: credentialsId, url: gitRepo]])
 }
 
 //获取变更文件列表，返回HashSet，注意添加的影响文件路径不含仓库目录名

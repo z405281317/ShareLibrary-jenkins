@@ -65,7 +65,8 @@ pipeline {
 
         stage("pull"){
             steps{
-                checkout scmGit(branches: [[name: BRANCH ]], extensions: [], userRemoteConfigs: [[credentialsId: '842ea056-6087-470a-9ca0-06bd1e9fa13c', url: gitRepo]])
+                //checkout scmGit(branches: [[name: BRANCH ]], extensions: [], userRemoteConfigs: [[credentialsId: '842ea056-6087-470a-9ca0-06bd1e9fa13c', url: gitRepo]])
+                utils.pull(BRANCH,'842ea056-6087-470a-9ca0-06bd1e9fa13c',gitRepo)
                 script{
                     println("部署环境：${params.环境}")
                     gitAuthorName = utils.GetAuthorName()
