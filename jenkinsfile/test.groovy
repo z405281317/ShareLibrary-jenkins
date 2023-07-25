@@ -2,29 +2,7 @@ def hello(){
     print("this hello")
 }
 
-// 获取提交人
-@NonCPS
-String getAuthorName(){
-    gitAuthorName = " "
-    for ( changeLogSet in currentBuild.changeSets){
-        for (entry in changeLogSet.getItems()){
-            gitAuthorName = entry.author.fullName
-        }
-    }
-    return gitAuthorName
-}
 
-// 获取提交信息
-@NonCPS
-String getCommitMessage(){
-    commitMessage = " "
-    for ( changeLogSet in currentBuild.changeSets){
-        for (entry in changeLogSet.getItems()){
-            commitMessage = entry.msg
-        }
-    }
-    return commitMessage
-}
 
 
 // git仓库地址
@@ -87,7 +65,9 @@ pipeline {
             steps{
                 checkout scmGit(branches: [[name: BRANCH ]], extensions: [], userRemoteConfigs: [[credentialsId: '842ea056-6087-470a-9ca0-06bd1e9fa13c', url: gitRepo]])
                 script{
-                    String gitCommitMessage = getCommitMessage()
+                    String gitAuthorName = utils.GetAuthorName()
+                    println("提交人: "+gitAuthorName)
+                    String gitCommitMessage = utils.GetCommitMessage()
                     println("提交信息: " + gitCommitMessage)
                 }
             }
