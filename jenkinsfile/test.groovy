@@ -2,6 +2,31 @@ def hello(){
     print("this hello")
 }
 
+// 获取提交人
+@NonCPS
+String getAuthorName(){
+    gitAuthorName = " "
+    for ( changeLogSet in currentBuild.changeSets){
+        for (entry in changeLogSet.getItems()){
+            gitAuthorName = entry.author.fullName
+        }
+    }
+    return gitAuthorName
+}
+
+// 获取提交信息
+@NonCPS
+String getCommitMessage(){
+    commitMessage = " "
+    for ( changeLogSet in currentBuild.changeSets){
+        for (entry in changeLogSet.getItems()){
+            commitMessage = entry.msg
+        }
+    }
+    return commitMessage
+}
+
+
 // git仓库地址
 def gitRepo = "https://github.com/david966524/ShareLibrary-jenkins.git"
 
@@ -61,6 +86,10 @@ pipeline {
         stage("pull"){
             steps{
                 checkout scmGit(branches: [[name: BRANCH ]], extensions: [], userRemoteConfigs: [[credentialsId: '842ea056-6087-470a-9ca0-06bd1e9fa13c', url: gitRepo]])
+                script{
+                    String gitCommitMessage = getCommitMessage()
+                    println("提交信息: " + gitCommitMessage)
+                }
             }
         }
     
